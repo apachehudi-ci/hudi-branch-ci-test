@@ -27,9 +27,11 @@ variables:
   SPARK_VERSION: '2.4.4'
   HADOOP_VERSION: '2.7'
   SPARK_HOME: $(Pipeline.Workspace)/spark-$(SPARK_VERSION)-bin-hadoop$(HADOOP_VERSION)
+  FOO: 'bar1'
 
 stages:
   - stage: test
+    condition: false
     jobs:
       - job: UT_FT_1
         displayName: UT FT common & flink & UT client/spark-client
